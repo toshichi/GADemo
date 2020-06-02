@@ -2,7 +2,6 @@ name: 'Github Actions Demo'
 
 on:
     push
-
 jobs:
     send_message:
         name: Job for send a message via Telegram
