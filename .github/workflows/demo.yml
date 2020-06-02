@@ -1,0 +1,24 @@
+name: 'Github Actions Demo'
+
+on:
+    push
+
+jobs:
+    send_message:
+        name: Job for send a message via Telegram
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout code of this repository
+            uses: actions/checkout@v2
+          - name: Prepare Python env
+            uses: actions/setup-python@v2
+            with:
+                python-version: '3.x'
+          - name: Run to send message
+            env:
+                BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+                CHAT_ID: ${{ secrets.CHAT_ID }}
+            run:
+                python send.py
+
+
