@@ -1,7 +1,9 @@
 name: 'Github Actions Demo'
 
 on:
-    push
+    push:
+      branches:
+        - master
 jobs:
     send_message:
         name: Job for send a message via Telegram
@@ -19,6 +21,6 @@ jobs:
                 CHAT_ID: ${{ secrets.CHAT_ID }}
             run: |
                 pip install -r requirements.txt
-                python send.py
+                python send.py "*Pushed to Master!* Push task has been triggered!"
 
 

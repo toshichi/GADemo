@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 import os
 import requests
+import sys
 
 def push(bot_token, chat_id):
     url = "https://api.telegram.org/bot%s/sendMessage" % bot_token
 
     payload = {
-        "text": "*Pushed!* Push task has been triggered!",
+        "text": sys.argv[1],
         "chat_id": chat_id,
         "parse_mode": "Markdown"
     }
